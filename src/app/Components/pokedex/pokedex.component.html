@@ -1,0 +1,30 @@
+<p>pokedex works!</p>
+<div class="containeruniversal">
+    <p>&nbsp;</p>
+    <div *ngIf="loader===true" class="centrar__loading">Cargando Productos....</div>
+    <div class="universal__titulo " *ngIf="loader===false">Resultado de todos los productos</div>
+    <input type="text" #textbuscar (keyup)="Buscador(textbuscar.value)" placeholder="buscador pokemons" />
+    <!--<mat-form-field appearance="fill">
+        <mat-label>Label</mat-label>
+        <mat-select [formControlName]="name" (selectionChange)="onSelected($event)">
+            <mat-option *ngFor="let item of arreglomonedas.rates" [value]="item.value">
+                <div style="white-space: initial; ">
+                    {{item.label}}
+                </div>
+            </mat-option>
+        </mat-select>
+    </mat-form-field>-->
+    <div class="alinear__btn" *ngIf="loader===false">
+        <button [ngClass]=" ValidadorAnterior() ? 'esconder__btn ': ''" (click)="PreviousPage()" [disabled]="ValidadorAnterior()" class="design__btn" type="button" class="btn btn-primary">Aneior</button>
+        <!--<button [ngClass]=" ValidadorAnterior() ? 'esconder__btn ': ''" (click)="PreviousPage()" [disabled]="ValidadorAnterior()" class="design__btn"><div class="alinear__flechas">Anterior</div></button>-->
+        <button (click)="nextPage()" class="design__btn"><div class="alinear__flechas">Siguiente</div></button>
+    </div>
+    <div *ngIf="loader===false" style="display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; justify-content: center;">
+        <div *ngFor="let productosfinales of pokemon | pipe:pagina:search ">
+            <div>
+                <app-card-pkemon [nombre]="productosfinales.name" [imagen]="productosfinales.imagen" [id]="productosfinales.id"></app-card-pkemon>
+
+            </div>
+        </div>
+    </div>
+</div>

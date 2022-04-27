@@ -1,0 +1,11 @@
+<div class="contenedortarjetas" (click)="onMostrar()">
+    <div class="contenedor__tarjeta__img">
+        <img src={{imagen}} alt="Imagen no encontrado" class="product__img" />
+    </div>
+    <div class="user__txt">
+        <p class="">{{id}}</p>
+        <p class="">{{nombre}}</p>
+    </div>
+    <app-modal-pokemon [open]="open" [nombre]="nombre" [imagen]="imagen"></app-modal-pokemon>
+    <!--<app-modal-erick [open]="open" [nombre]="nombre" [precio]="precio" [brand]="brand" [rating]="rating" [imagen]="imagen" [category]="category" [description]="description" [product_type]="product_type" [colors]="colors"></app-modal-erick>-->
+</div>
